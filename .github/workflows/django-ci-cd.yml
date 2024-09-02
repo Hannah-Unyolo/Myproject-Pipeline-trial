@@ -2,9 +2,13 @@ name: Django CI/CD
 
 on:
   push:
-    branches: [ main ]
+    branches: 
+        - main 
+        - master
   pull_request:
-    branches: [ main ]
+    branches: 
+        - main
+        - master
 
 jobs:
   build:
@@ -13,10 +17,7 @@ jobs:
     services:
       postgres:
         image: postgres:latest
-        env:
-          POSTGRES_USER: postgres
-          POSTGRES_PASSWORD: postgres
-          POSTGRES_DB: mydatabase
+      
         ports:
           - 5432:5432
         options: >-
